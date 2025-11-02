@@ -4,111 +4,157 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>HPAI MEDIA — Nâng Tầm Doanh Nghiệp</title>
+
+  <!-- Preconnect / preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- NOTE: use relative paths so the files resolve in most hosting setups -->
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="color-scheme" content="light dark">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <div class="brand">
-        <span class="logo">HPAI<span>MEDIA</span></span>
+      <a href="#home" class="logo">HPAI<span>MEDIA</span></a>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="Chuyển giao diện">🌗</button>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mainNav" title="Mở menu">
+          <span class="sr-only">Mở menu</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
       </div>
-      <nav class="nav">
+
+      <nav id="mainNav" class="nav" role="navigation">
         <a href="#home">Trang Chủ</a>
         <a href="#services">Dịch Vụ</a>
-        <a href="#about">Giới Thiệu & Liên Hệ</a>
+        <a href="#about">Giới Thiệu</a>
+        <a href="#legal">Liên Hệ</a>
       </nav>
     </div>
   </header>
 
   <main>
     <!-- Hero -->
-    <section id="home" class="hero">
+    <section id="home" class="hero reveal-section" aria-labelledby="hero-title">
       <div class="container hero-inner">
-        <div class="hero-top-badge">HPAI MEDIA</div>
-        <h1 class="hero-title">Nâng Tầm Doanh Nghiệp</h1>
-        <p class="hero-sub">
-          Với sức mạnh của Trí Tuệ Nhân Tạo và sự sáng tạo không giới hạn, HPAI MEDIA mang đến các giải pháp công nghệ, phần mềm, và marketing đột phá, giúp doanh nghiệp bạn dẫn đầu trong kỷ nguyên số.
-        </p>
-        <a class="btn-primary" href="#services">Khám Phá Dịch Vụ</a>
+        <div class="hero-card">
+          <div class="hero-top-badge">HPAI MEDIA</div>
+          <h1 id="hero-title" class="hero-title">Nâng Tầm Doanh Nghiệp</h1>
+          <p class="hero-sub">
+            Sử dụng AI và công nghệ sáng tạo để cung cấp giải pháp phần mềm, hệ thống và marketing giúp doanh nghiệp phát triển bền vững.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#services">Khám Phá Dịch Vụ</a>
+            <a class="btn-ghost" href="#about">Tìm Hiểu Thêm</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" id="heroVisual" aria-hidden="true">
+          <img
+            src="https://picsum.photos/720/420?random=1"
+            srcset="https://picsum.photos/480/280?random=1 480w, https://picsum.photos/720/420?random=1 720w, https://picsum.photos/1080/630?random=1 1080w"
+            sizes="(max-width: 800px) 90vw, 380px"
+            loading="lazy"
+            alt="Hình minh hoạ"
+          />
+        </div>
       </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="services">
+    <section id="services" class="services reveal-section" aria-labelledby="services-title">
       <div class="container">
-        <h2 class="section-title">Dịch Vụ Của Chúng Tôi</h2>
+        <h2 id="services-title" class="section-title">Dịch Vụ Của Chúng Tôi</h2>
         <p class="section-sub">Giải pháp toàn diện cho sự phát triển của bạn</p>
 
-        <div class="cards-grid">
-          <article class="card">
-            <div class="card-icon">{"</>"}</div>
+        <div class="cards-grid" id="servicesGrid">
+          <article class="card reveal-item" data-index="0" tabindex="0">
+            <div class="card-icon" aria-hidden="true">&lt;/&gt;</div>
             <h3>Phát Triển & Xuất Bản Phần Mềm</h3>
-            <p>Lập trình, phát triển và xuất bản phần mềm, ứng dụng web, và các công cụ tùy chỉnh theo yêu cầu doanh nghiệp.</p>
+            <p>Lập trình, phát triển và xuất bản phần mềm, ứng dụng web và công cụ tùy chỉnh theo yêu cầu doanh nghiệp.</p>
           </article>
-          <article class="card">
-            <div class="card-icon">💬</div>
+
+          <article class="card reveal-item" data-index="1" tabindex="0">
+            <div class="card-icon" aria-hidden="true">💬</div>
             <h3>Tư Vấn & Dịch Vụ CNTT</h3>
-            <p>Cung cấp dịch vụ tư vấn máy tính, quản trị hệ thống và các dịch vụ công nghệ thông tin khác.</p>
+            <p>Tư vấn hạ tầng, quản trị hệ thống và triển khai giải pháp CNTT tối ưu cho doanh nghiệp.</p>
           </article>
-          <article class="card">
-            <div class="card-icon">🎥</div>
+
+          <article class="card reveal-item" data-index="2" tabindex="0">
+            <div class="card-icon" aria-hidden="true">🎥</div>
             <h3>Sản Xuất Nội Dung Số</h3>
-            <p>Thực hiện hoạt động hậu kỳ phim ảnh, video, phát hành và sản xuất các sản phẩm nghe nhìn chuyên nghiệp.</p>
+            <p>Hậu kỳ phim ảnh, video và sản xuất nội dung nghe nhìn chuyên nghiệp cho thương hiệu.</p>
           </article>
-          <article class="card">
-            <div class="card-icon">📈</div>
+
+          <article class="card reveal-item" data-index="3" tabindex="0">
+            <div class="card-icon" aria-hidden="true">📈</div>
             <h3>Cổng Thông Tin & Website</h3>
-            <p>Thiết kế, xây dựng website doanh nghiệp và nền tảng thương mại điện tử.</p>
+            <p>Thiết kế và phát triển website, portal và nền tảng thương mại điện tử vận hành hiệu quả.</p>
           </article>
-          <article class="card">
-            <div class="card-icon">📣</div>
+
+          <article class="card reveal-item" data-index="4" tabindex="0">
+            <div class="card-icon" aria-hidden="true">📣</div>
             <h3>Quảng Cáo & Marketing</h3>
-            <p>Dịch vụ quảng cáo, marketing, nghiên cứu thị trường và xúc tiến thương mại.</p>
+            <p>Chiến lược quảng cáo, marketing và xúc tiến thương mại tăng trưởng đo lường được.</p>
           </article>
-          <article class="card">
-            <div class="card-icon">📝</div>
+
+          <article class="card reveal-item" data-index="5" tabindex="0">
+            <div class="card-icon" aria-hidden="true">📝</div>
             <h3>Tư Vấn Quản Lý</h3>
-            <p>Hoạt động tư vấn quản lý, chiến lược phát triển và tối ưu hoá vận hành doanh nghiệp.</p>
+            <p>Tối ưu vận hành, chiến lược phát triển và tư vấn quản lý doanh nghiệp.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="about">
+    <section id="about" class="about reveal-section" aria-labelledby="about-title">
       <div class="container about-inner">
         <div class="about-media">
-          <img src="https://picsum.photos/800/520?random=4" alt="laptop" />
+          <img
+            src="https://picsum.photos/800/520?random=4"
+            srcset="https://picsum.photos/480/312?random=4 480w, https://picsum.photos/800/520?random=4 800w"
+            sizes="(max-width: 680px) 90vw, 420px"
+            loading="lazy"
+            alt="Laptop sáng tạo"
+          />
         </div>
         <div class="about-content">
-          <h2>Về HPAI MEDIA</h2>
+          <h2 id="about-title">Về HPAI MEDIA</h2>
           <p class="lead">Đơn vị tiên phong trong lĩnh vực công nghệ và sáng tạo</p>
 
           <h3>Sứ Mệnh Của Chúng Tôi</h3>
-          <p>Tại HPAI MEDIA, sứ mệnh của chúng tôi là đồng hành cùng các doanh nghiệp, cung cấp những giải pháp đột phá từ Trí tuệ nhân tạo, phát triển phần mềm, đến các chiến lược marketing số hiệu quả.</p>
+          <p>Tại HPAI MEDIA, sứ mệnh của chúng tôi là đồng hành cùng doanh nghiệp bằng những giải pháp đột phá từ AI, phần mềm và marketing số hiệu quả.</p>
 
           <h3>Tầm Nhìn & Giá Trị Cốt Lõi</h3>
-          <p>Chúng tôi không ngừng đổi mới để trở thành đối tác công nghệ đáng tin cậy, mang lại sản phẩm và dịch vụ chất lượng cao: Sáng tạo – Hiệu quả – Tận tâm.</p>
+          <p>Không ngừng đổi mới để trở thành đối tác công nghệ đáng tin cậy, mang lại sản phẩm: Sáng tạo – Hiệu quả – Tận tâm.</p>
         </div>
       </div>
     </section>
 
     <!-- Legal / Contact -->
-    <section class="legal">
+    <section id="legal" class="legal reveal-section" aria-labelledby="legal-title">
       <div class="container">
-        <h2 class="section-title">Thông Tin Pháp Lý & Liên Hệ</h2>
+        <h2 id="legal-title" class="section-title">Thông Tin Pháp Lý & Liên Hệ</h2>
 
         <div class="info-card">
-          <table class="info-table">
+          <table class="info-table" role="table" aria-label="Thông tin công ty">
             <tbody>
               <tr><th>Tên công ty</th><td>CÔNG TY TNHH CÔNG NGHỆ H-PAI MEDIA</td></tr>
-              <tr><th>Email</th><td>seringuyen0506@gmail.com</td></tr>
+              <tr><th>Tên tiếng Anh</th><td>H-PAI MEDIA TECHNOLOGY COMPANY LIMITED</td></tr>
+              <tr><th>Mã số thuế</th><td>0318917863</td></tr>
+              <tr><th>Người đại diện</th><td>Nguyễn Huy Phúc – Giám đốc</td></tr>
+              <tr><th>Địa chỉ trụ sở</th><td>66 Võ Văn Hát, Phường Long Trường, TP. Thủ Đức, TP. Hồ Chí Minh, Việt Nam</td></tr>
+              <tr><th>Email</th><td><a href="mailto:seringuyen0506@gmail.com">seringuyen0506@gmail.com</a></td></tr>
               <tr><th>Số điện thoại</th><td>0584 375 253</td></tr>
-              <tr><th>Địa chỉ</th><td>66 Võ Văn Hát, Phường Long Trường, TP. Thủ Đức, TP. Hồ Chí Minh, Việt Nam</td></tr>
               <tr><th>Website</th><td>hpaimedia.sbs</td></tr>
+              <tr><th>Ngành chính</th><td>6209 – Hoạt động dịch vụ công nghệ thông tin</td></tr>
             </tbody>
           </table>
+
           <div class="center-cta">
             <a class="btn-primary" href="mailto:seringuyen0506@gmail.com">Gửi Yêu Cầu Tư Vấn</a>
           </div>
@@ -117,12 +163,10 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">© <span id="year"></span> HPAI MEDIA. All rights reserved.</div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="./script.js" defer></script>
 </body>
 </html>
