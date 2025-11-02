@@ -61,11 +61,6 @@ body{
 .nav a{color:var(--text);text-decoration:none;font-weight:600;font-size:14px;padding:8px 10px;border-radius:8px}
 .nav a:hover{background:rgba(0,0,0,0.04)}
 
-/* header actions */
-.header-actions{display:flex;gap:8px;align-items:center}
-.theme-toggle{background:transparent;border:0;padding:6px;border-radius:8px;font-size:16px}
-.nav-toggle{display:none;background:transparent;border:0;color:inherit;padding:6px;border-radius:8px}
-
 /* hero */
 .hero{padding:64px 0 50px}
 .hero-inner{display:flex;align-items:center;gap:28px;justify-content:space-between}
@@ -159,8 +154,7 @@ body{
 }
 
 @media (max-width:680px){
-  .nav{display:none}
-  .nav-toggle{display:inline-flex}
+  .nav{display:flex; /* keep nav visible on mobile (no hamburger) */}
   .header-inner{position:relative}
   .cards-grid{grid-template-columns:1fr}
   .about-inner{flex-direction:column}
