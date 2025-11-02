@@ -2,7 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   // set year
   const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  const el = document.getElementById('year');
+if (el) el.textContent = String(new Date().getFullYear());
+
 
   // reveal sections
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
