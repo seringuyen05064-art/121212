@@ -1,18 +1,6 @@
-// Basic interactions: nav toggle, reveal staggering, hero parallax, theme toggle
-
+// Basic interactions: reveal staggering, hero parallax
 // set year
 document.getElementById('year')?.textContent = new Date().getFullYear();
-
-// nav toggle
-const navToggle = document.getElementById('navToggle');
-const mainNav = document.getElementById('mainNav');
-if (navToggle && mainNav) {
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    mainNav.classList.toggle('open');
-  });
-}
 
 // reveal sections
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -73,22 +61,4 @@ if (!prefersReduced) {
   window.addEventListener('mousemove', onMove, {passive:true});
   window.addEventListener('resize', () => bounds = visual.getBoundingClientRect(), {passive:true});
   raf();
-})();
-
-// theme toggle (persist to localStorage)
-(function(){
-  const toggle = document.getElementById('themeToggle');
-  const root = document.documentElement;
-  function applyTheme(t){
-    document.body.classList.toggle('theme-dark', t === 'dark');
-    if (toggle) toggle.setAttribute('aria-pressed', String(t === 'dark'));
-  }
-  const stored = localStorage.getItem('site-theme');
-  if (stored) applyTheme(stored);
-  toggle?.addEventListener('click', () => {
-    const currentDark = document.body.classList.contains('theme-dark');
-    const next = currentDark ? 'light' : 'dark';
-    localStorage.setItem('site-theme', next);
-    applyTheme(next);
-  });
 })();
